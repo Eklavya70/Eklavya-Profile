@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E K L A V Y A</title>
+  <meta name="description" content="Eklavya — SELF-TAUGHT. SELF-MADE. AIM TRUE.">
+  <meta property="og:title" content="E K L A V Y A">
+  <meta property="og:description" content="SELF-TAUGHT. SELF-MADE. AIM TRUE.">
+  <meta property="og:image" content="assets/Eklavya.png">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="night">
+  
+  <div class="theme-transition-overlay" id="themeOverlay">
+    <div class="arrow-projectile" id="arrowProjectile">
+      <svg viewBox="0 0 100 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100,8 L85,3 Q87.5,6 87,8 Q87.5,10 85,13 Z" fill="#AEB3B8" stroke="#4D4D4D" stroke-width="1.2" stroke-linejoin="round"/>
+        <line x1="100" y1="8" x2="87" y2="8" stroke="#4D4D4D" stroke-width="1"/>
+        <rect x="84" y="6.5" width="3" height="3" fill="#666666" stroke="#4D4D4D" stroke-width="0.8"/>
+        <line x1="22" y1="8" x2="84" y2="8" stroke="#666666" stroke-width="1.6" stroke-linecap="round"/>
+        <rect x="20" y="6.5" width="2" height="3" fill="#4D4D4D"/>
+        <path d="M20,8 L5,4 L2,8 L5,12 Z" fill="#1E1E1E" stroke="#4D4D4D" stroke-width="0.8"/>
+        <path d="M5,4 L20,8 M5,12 L20,8" stroke="#4D4D4D" stroke-width="0.5"/>
+        <path d="M2,7.2 L0,7.2 L1,8 L0,8.8 L2,8.8 Z" fill="#666666"/>
+      </svg>
+    </div>
+    <div class="transition-trail" id="transitionTrail"></div>
+  </div>
+
+  <canvas id="particleCanvas"></canvas>
+
+  <div class="bg-blobs">
+    <div class="blob blob--ember"></div>
+    <div class="blob blob--moss"></div>
+    <div class="blob blob--ember-2"></div>
+  </div>
+
+  <div class="date-display" id="dateDisplay"></div>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+
+  <div class="main-wrapper" id="mainWrapper">
+    <div class="content" id="mainContent">
+      <img class="avatar" src="assets/Eklavya.png" alt="E K L A V Y A" onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex'">
+      <div class="avatar avatar-fallback" id="avatarFallback" style="display:none">EK</div>
+      <h1>E K L A V Y A</h1>
+      <p class="bio">SELF-TAUGHT. SELF-MADE. TRUE AIM.</p>
+
+      <nav class="links" id="linksNav">
+        <a href="#" id="storyLink">My Story</a>
+        <a href="#" id="clanLink">The Clan</a>
+        <a href="https://github.com/Eklavya70" target="_blank" rel="noopener">The Armory</a>
+        <a href="https://www.linkedin.com/in/eklavyaa/" target="_blank" rel="noopener">The New Kingdom</a>
+        <a href="#" id="aboutLink">Info About Me</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="side-panel panel-left" id="storyPanel">
+    <button class="panel-close" id="storyClose" aria-label="Close story">
+      <span class="arrow-btn-icon">
+        <svg viewBox="0 0 100 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100,8 L85,3 Q87.5,6 87,8 Q87.5,10 85,13 Z" fill="#AEB3B8" stroke="#4D4D4D" stroke-width="1.2" stroke-linejoin="round"/>
+          <line x1="100" y1="8" x2="87" y2="8" stroke="#4D4D4D" stroke-width="1"/>
+          <rect x="84" y="6.5" width="3" height="3" fill="#666666" stroke="#4D4D4D" stroke-width="0.8"/>
+          <line x1="22" y1="8" x2="84" y2="8" stroke="#666666" stroke-width="1.6" stroke-linecap="round"/>
+          <rect x="20" y="6.5" width="2" height="3" fill="#4D4D4D"/>
+          <path d="M20,8 L5,4 L2,8 L5,12 Z" fill="#1E1E1E" stroke="#4D4D4D" stroke-width="0.8"/>
+          <path d="M5,4 L20,8 M5,12 L20,8" stroke="#4D4D4D" stroke-width="0.5"/>
+          <path d="M2,7.2 L0,7.2 L1,8 L0,8.8 L2,8.8 Z" fill="#666666"/>
+        </svg>
+      </span> Back
+    </button>
+    <div class="flashcard-container" id="storyCards"></div>
+    <div class="flashcard-nav">
+      <button class="fc-prev" id="storyPrev">
+        <span class="arrow-btn-icon">
+          <svg viewBox="0 0 100 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100,8 L85,3 Q87.5,6 87,8 Q87.5,10 85,13 Z" fill="#AEB3B8" stroke="#4D4D4D" stroke-width="1.2" stroke-linejoin="round"/>
+            <line x1="100" y1="8" x2="87" y2="8" stroke="#4D4D4D" stroke-width="1"/>
+            <rect x="84" y="6.5" width="3" height="3" fill="#666666" stroke="#4D4D4D" stroke-width="0.8"/>
+            <line x1="22" y1="8" x2="84" y2="8" stroke="#666666" stroke-width="1.6" stroke-linecap="round"/>
+            <rect x="20" y="6.5" width="2" height="3" fill="#4D4D4D"/>
+            <path d="M20,8 L5,4 L2,8 L5,12 Z" fill="#1E1E1E" stroke="#4D4D4D" stroke-width="0.8"/>
+            <path d="M5,4 L20,8 M5,12 L20,8" stroke="#4D4D4D" stroke-width="0.5"/>
+            <path d="M2,7.2 L0,7.2 L1,8 L0,8.8 L2,8.8 Z" fill="#666666"/>
+          </svg>
+        </span>
+      </button>
+      <span class="fc-indicator" id="storyIndicator">1 / ?</span>
+      <button class="fc-next" id="storyNext">
+        <span class="arrow-btn-icon arrow-right">
+          <svg viewBox="0 0 100 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100,8 L85,3 Q87.5,6 87,8 Q87.5,10 85,13 Z" fill="#AEB3B8" stroke="#4D4D4D" stroke-width="1.2" stroke-linejoin="round"/>
+            <line x1="100" y1="8" x2="87" y2="8" stroke="#4D4D4D" stroke-width="1"/>
+            <rect x="84" y="6.5" width="3" height="3" fill="#666666" stroke="#4D4D4D" stroke-width="0.8"/>
+            <line x1="22" y1="8" x2="84" y2="8" stroke="#666666" stroke-width="1.6" stroke-linecap="round"/>
+            <rect x="20" y="6.5" width="2" height="3" fill="#4D4D4D"/>
+            <path d="M20,8 L5,4 L2,8 L5,12 Z" fill="#1E1E1E" stroke="#4D4D4D" stroke-width="0.8"/>
+            <path d="M5,4 L20,8 M5,12 L20,8" stroke="#4D4D4D" stroke-width="0.5"/>
+            <path d="M2,7.2 L0,7.2 L1,8 L0,8.8 L2,8.8 Z" fill="#666666"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="side-panel panel-right" id="clanPanel">
+    <button class="panel-close panel-close-right" id="clanClose" aria-label="Close clan story">
+      Back <span class="arrow-btn-icon arrow-right">
+        <svg viewBox="0 0 100 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100,8 L85,3 Q87.5,6 87,8 Q87.5,10 85,13 Z" fill="#AEB3B8" stroke="#4D4D4D" stroke-width="1.2" stroke-linejoin="round"/>
+          <line x1="100" y1="8" x2="87" y2="8" stroke="#4D4D4D" stroke-width="1"/>
+          <rect x="84" y="6.5" width="3" height="3" fill="#666666" stroke="#4D4D4D" stroke-width="0.8"/>
+          <line x1="22" y1="8" x2="84" y2="8" stroke="#666666" stroke-width="1.6" stroke-linecap="round"/>
+          <rect x="20" y="6.5" width="2" height="3" fill="#4D4D4D"/>
+          <path d="M20,8 L5,4 L2,8 L5,12 Z" fill="#1E1E1E" stroke="#4D4D4D" stroke-width="0.8"/>
+          <path d="M5,4 L20,8 M5,12 L20,8" stroke="#4D4D4D" stroke-width="0.5"/>
+          <path d="M2,7.2 L0,7.2 L1,8 L0,8.8 L2,8.8 Z" fill="#666666"/>
+        </svg>
+      </span>
+    </button>
+    <div class="flashcard-container" id="clanCards"></div>
+    <div class="flashcard-nav">
+      <button class="fc-prev" id="clanPrev">
+        <span class="arrow-btn-icon">
+          <svg viewBox="0 0 100 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100,8 L85,3 Q87.5,6 87,8 Q87.5,10 85,13 Z" fill="#AEB3B8" stroke="#4D4D4D" stroke-width="1.2" stroke-linejoin="round"/>
+            <line x1="100" y1="8" x2="87" y2="8" stroke="#4D4D4D" stroke-width="1"/>
+            <rect x="84" y="6.5" width="3" height="3" fill="#666666" stroke="#4D4D4D" stroke-width="0.8"/>
+            <line x1="22" y1="8" x2="84" y2="8" stroke="#666666" stroke-width="1.6" stroke-linecap="round"/>
+            <rect x="20" y="6.5" width="2" height="3" fill="#4D4D4D"/>
+            <path d="M20,8 L5,4 L2,8 L5,12 Z" fill="#1E1E1E" stroke="#4D4D4D" stroke-width="0.8"/>
+            <path d="M5,4 L20,8 M5,12 L20,8" stroke="#4D4D4D" stroke-width="0.5"/>
+            <path d="M2,7.2 L0,7.2 L1,8 L0,8.8 L2,8.8 Z" fill="#666666"/>
+          </svg>
+        </span>
+      </button>
+      <span class="fc-indicator" id="clanIndicator">1 / ?</span>
+      <button class="fc-next" id="clanNext">
+        <span class="arrow-btn-icon arrow-right">
+          <svg viewBox="0 0 100 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100,8 L85,3 Q87.5,6 87,8 Q87.5,10 85,13 Z" fill="#AEB3B8" stroke="#4D4D4D" stroke-width="1.2" stroke-linejoin="round"/>
+            <line x1="100" y1="8" x2="87" y2="8" stroke="#4D4D4D" stroke-width="1"/>
+            <rect x="84" y="6.5" width="3" height="3" fill="#666666" stroke="#4D4D4D" stroke-width="0.8"/>
+            <line x1="22" y1="8" x2="84" y2="8" stroke="#666666" stroke-width="1.6" stroke-linecap="round"/>
+            <rect x="20" y="6.5" width="2" height="3" fill="#4D4D4D"/>
+            <path d="M20,8 L5,4 L2,8 L5,12 Z" fill="#1E1E1E" stroke="#4D4D4D" stroke-width="0.8"/>
+            <path d="M5,4 L20,8 M5,12 L20,8" stroke="#4D4D4D" stroke-width="0.5"/>
+            <path d="M2,7.2 L0,7.2 L1,8 L0,8.8 L2,8.8 Z" fill="#666666"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="bottom-panel" id="aboutPanel">
+    <button class="panel-close panel-close-bottom" id="aboutClose" aria-label="Close about">
+      <span class="arrow-btn-icon arrow-down">
+        <svg viewBox="0 0 100 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100,8 L85,3 Q87.5,6 87,8 Q87.5,10 85,13 Z" fill="#AEB3B8" stroke="#4D4D4D" stroke-width="1.2" stroke-linejoin="round"/>
+          <line x1="100" y1="8" x2="87" y2="8" stroke="#4D4D4D" stroke-width="1"/>
+          <rect x="84" y="6.5" width="3" height="3" fill="#666666" stroke="#4D4D4D" stroke-width="0.8"/>
+          <line x1="22" y1="8" x2="84" y2="8" stroke="#666666" stroke-width="1.6" stroke-linecap="round"/>
+          <rect x="20" y="6.5" width="2" height="3" fill="#4D4D4D"/>
+          <path d="M20,8 L5,4 L2,8 L5,12 Z" fill="#1E1E1E" stroke="#4D4D4D" stroke-width="0.8"/>
+          <path d="M5,4 L20,8 M5,12 L20,8" stroke="#4D4D4D" stroke-width="0.5"/>
+          <path d="M2,7.2 L0,7.2 L1,8 L0,8.8 L2,8.8 Z" fill="#666666"/>
+        </svg>
+      </span> Close
+    </button>
+    <div class="about-content">
+      <h2>About the Author</h2>
+      <div class="about-card">
+        <h3>Who am I?</h3>
+        <p>I am <strong>Adii</strong>, a passionate and dedicated Bachelor of Technology (B.Tech.) student pursuing <strong>Artificial Intelligence and Data Science (AI&DS)</strong> at Vishwakarma Institute of Technology (VIT), Pune.</p>
+        <p>I have a strong interest in software development, artificial intelligence, data science, and modern web technologies. I enjoy learning new technologies and applying them to solve real-world problems through practical projects.</p>
+      </div>
+      <div class="about-card">
+        <h3>What I Build With</h3>
+        <p>Throughout my academic journey, I have worked on projects involving <strong>Python, C++, PHP, MySQL, HTML, CSS, JavaScript, Flask, Machine Learning,</strong> and <strong>Database Management Systems</strong>.</p>
+        <p>I enjoy building applications that combine functionality with user-friendly interfaces and continuously strive to improve my programming and problem-solving skills.</p>
+      </div>
+      <div class="about-card">
+        <h3>What Drives Me</h3>
+        <p>Beyond academics, I am always eager to explore emerging technologies, improve my communication skills, and expand my knowledge in <strong>artificial intelligence, cybersecurity,</strong> and <strong>full-stack development</strong>.</p>
+        <p>I believe in continuous learning, teamwork, and creating solutions that have a meaningful impact.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tagline-ticker" id="taglineTicker"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
